@@ -43,7 +43,6 @@ public class Wc
             spaces += readw.next();
         }
         readw.close();
-        readl.useDelimiter("[^.]");
         readl.useDelimiter("\n");
         int lineCount = 0;
         while(readl.hasNext())

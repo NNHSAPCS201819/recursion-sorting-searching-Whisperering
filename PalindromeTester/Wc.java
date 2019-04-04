@@ -44,15 +44,16 @@ public class Wc
         }
         readw.close();
         readl.useDelimiter("[^.]");
+        readl.useDelimiter("\n");
         int lineCount = 0;
         while(readl.hasNext())
         {
-            periods += readl.next();
+            readl.next();
+            lineCount ++;
         }
         readl.close();
         characterCount = str.length();
         wordCount = spaces.length() + 1;
-        lineCount = periods.length();
         System.out.println("There are " + characterCount + " characters.");
         System.out.println("There are " + wordCount + " words.");
         System.out.println("There are " + lineCount + " lines.");

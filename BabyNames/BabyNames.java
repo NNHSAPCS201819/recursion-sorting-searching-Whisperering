@@ -8,7 +8,11 @@ public class BabyNames
 
    public static void main(String[] args) throws FileNotFoundException
    {  
-      Scanner in = new Scanner(new File("babynames.txt"));
+      Scanner s = new Scanner(System.in);
+      System.out.print("Enter file name: ");
+      String file = s.next();
+      Scanner in = new Scanner(new File(file));
+      in.useDelimiter(",");
          
       RecordReader boys = new RecordReader(LIMIT);
       RecordReader girls = new RecordReader(LIMIT);
@@ -16,7 +20,7 @@ public class BabyNames
       while (boys.hasMore() || girls.hasMore())
       {
          int rank = in.nextInt();
-         System.out.print(rank + " ");
+         System.out.print(rank + " " + in.next());
          boys.process(in);
          girls.process(in);
          System.out.println();

@@ -7,14 +7,16 @@ public class RecordReader
 {
    private double total;
    private double limit;
+   private double births;
 
    /**
       Constructs a RecordReader with a zero total.
    */
-   public RecordReader(double aLimit)
+   public RecordReader(double aLimit, Scanner in)
    {
       total = 0;
       limit = aLimit;
+      births = (double)(Integer.parseInt(in.next().replaceAll(",", "")));
    }
 
    /**
@@ -26,9 +28,10 @@ public class RecordReader
    {
       String name = in.next();
       int count = in.nextInt();
-      double percent = in.nextDouble();
+      double percent =  100 * (count / births);
       
       if (total < limit) { System.out.print(name + " "); }
+      //total++;
       total = total + percent;
    }
 

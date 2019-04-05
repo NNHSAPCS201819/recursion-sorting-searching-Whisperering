@@ -1,3 +1,4 @@
+20,549,064		19,642,694
 1	Michael	462,314	Jessica	303,086
 2	Christopher	360,204	Ashley	301,801
 3	Matthew	351,606	Emily	237,227

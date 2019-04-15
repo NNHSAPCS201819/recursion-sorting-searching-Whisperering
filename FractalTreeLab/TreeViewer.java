@@ -22,7 +22,6 @@ public class TreeViewer
         panel = new JPanel();
         tBuilder = new TreeComponent();
         panel.add(tBuilder);
-        
         frame.setTitle("Fractal Tree");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);

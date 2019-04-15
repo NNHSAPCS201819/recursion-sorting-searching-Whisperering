@@ -10,12 +10,12 @@ import java.awt.geom.Line2D;
 public class TreeComponent extends JPanel
 {
     private final int PANEL_WIDTH = 800;
-    private final int PANEL_HEIGHT = 500;
+    private final int PANEL_HEIGHT = 600;
     private int order;
-    
-    private final int PX1 = 400, PY1 = 400;
-    private final int PX2 = 400, PY2 = 450;
-    
+
+    private final int PX1 = 400, PY1 = 350;
+    private final int PX2 = 400, PY2 = 550;
+
     /**
      * Constructor for objects of class TreeComponent
      */
@@ -23,17 +23,25 @@ public class TreeComponent extends JPanel
     {
         setBackground(Color.white);
         setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
-        order = 0;
+        order = 1;
     }
 
-    public void drawFractal(int x1, int y1, int x2, int y2, Graphics g)
+    public void drawFractal(int x1, int y1, int x2, int y2, int angle, int length, Graphics g)
     {
+        Graphics2D g2 = (Graphics2D) g;
+        int nlen = (int)(length * .5);
         if(order == 1)
         {
             Line2D.Double line1 = new Line2D.Double(x1, y1, x2, y2);
-            g.draw(line1);
+            g2.draw(line1);
+            Line2D.Double line2 = new Line2D.Double(x1, y1, x2, y2);
+            g2.draw(line2);
+            Line2D.Double line3 = new Line2D.Double(x1, y1, x2, y2);
+            g2.draw(line3);
             order++;
         }
+        // drawFractal(x2, y2, x2, y2, angle, nlen, g);
+        // drawFractal(x2, y2, x2, y2, angle, nlen, g);
     }
 
     @Override
@@ -41,6 +49,6 @@ public class TreeComponent extends JPanel
     {
         super.paintComponent(g);
         g.setColor(Color.red);
-        drawFractal(PX1, PY1, PX2, PY1, g);
+        drawFractal(PX1, PY1, PX2, PY2, 45, 200, g);
     }
 }

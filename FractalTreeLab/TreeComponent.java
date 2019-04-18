@@ -28,24 +28,20 @@ public class TreeComponent extends JPanel
     public void drawFractal(int x, int y, int angle, int length, int mleng, Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
-        int nlen = (int)(length * .5);
-        if(order == 1)
-        {
-            Line2D.Double line1 = new Line2D.Double(x, y, x, y - length);
-            g2.draw(line1);
-            order++;
-            drawFractal(x, y - length, 45, nlen, 1, g);
+        double nlen = length * .7;
+        if(length < mleng)
+        {            
         }
-        else if(length > mleng)
+        else
         {
-            int rat1 = (int)(Math.sin(Math.toRadians(angle)));
-            int rat2 = (int)(Math.cos(Math.toRadians(angle)));
-            int opp = rat1 * length;
-            int adj = rat2 * length;
-            Line2D.Double liner = new Line2D.Double(x, y, (x + adj), (y - opp));
+            double opp = Math.sin(Math.toRadians(angle)) * length;
+            double adj = Math.cos(Math.toRadians(angle))* length;
+            double x2 = x + adj;
+            double y2 = y - opp;
+            Line2D.Double liner = new Line2D.Double(x, y, x2, y2);
             g2.draw(liner);
-            // drawFractal(x + adj, y - opp, angle, nlen, 1, g);
-            // drawFractal(x, y, angle, nlen, 1, g);
+            drawFractal((int)x2, (int)y2, angle - 30, (int)nlen, 1, g);
+            drawFractal((int)x2 , (int)y2, angle + 20, (int)nlen, 1, g);
         }
     }
 
@@ -54,6 +50,6 @@ public class TreeComponent extends JPanel
     {
         super.paintComponent(g);
         g.setColor(Color.red);
-        drawFractal(PX1, PY1, 45, 200, 1, g);
+        drawFractal(PX1, PY1, 90, 150, 1, g);
     }
 }

@@ -1,21 +1,24 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 /**
- * Write a description of class TreeViewer here.
+ * Creates a JFrame object to which all desired components are
+ * added especially the TreeComponent object which diplays
+ * fractal trees.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Evelina Mielko
+ * @version 04/18/2019
  */
 public class TreeViewer
 {
-    // instance variables - replace the example below with your own
     private final int WIDTH = 800;
     private final int HEIGHT = 600;
     private TreeComponent tBuilder;
     private JFrame frame;
     private JPanel panel;
     
+    /**
+     * Creates and adds all desired components to a JFrame type
+     */
     public TreeViewer()
     {
         frame = new JFrame();

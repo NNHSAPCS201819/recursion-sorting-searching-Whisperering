@@ -15,7 +15,26 @@ public class BinarySearcher
    */
    public static int search(int[] a, int low, int high, int value)
    {  
-      
+      int middle = (int)(low + high)/2;
+      if(a[middle] == value)
+      {
+          return middle;
+      }
+      else if(low > high)
+      {
+          return (-1 * search(a, 0, a.length - 1, value - 1)) - 1;
+      }
+      else if(a[middle] < value)
+      {
+          
+          return search(a, middle+1, high, value);
+      }
+      else if(a[middle] > value)
+      {
+          
+          return search(a, low, middle-1, value);
+      }
+      return -1;
    }
 }
 
